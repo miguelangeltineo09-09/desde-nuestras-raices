@@ -1,0 +1,87 @@
+---
+import logo from '../assets/logo-icono.svg';
+
+const links = [
+	{ href: '/', label: 'Inicio' },
+	{ href: '/nuestra-fundacion', label: 'Nuestra Fundación' },
+	{ href: '/proyectos', label: 'Proyectos' },
+	{ href: '/contacto', label: 'Contacto' },
+];
+---
+
+<header class="bg-crema">
+	<nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+		<a href="/" class="flex items-center gap-3">
+			<img src={logo.src} alt="Desde Nuestras Raíces" class="h-9 w-auto" />
+			<span class="font-heading text-lg font-semibold text-marron">Desde Nuestras Raíces</span>
+		</a>
+
+		<ul class="hidden items-center gap-8 md:flex">
+			{links.map((link) => (
+				<li>
+					<a href={link.href} class="font-medium text-marron transition-colors hover:text-oliva">
+						{link.label}
+					</a>
+				</li>
+			))}
+		</ul>
+
+		<button
+			id="menu-toggle"
+			type="button"
+			class="flex h-10 w-10 items-center justify-center rounded-lg text-marron md:hidden"
+			aria-label="Abrir menú"
+			aria-expanded="false"
+			aria-controls="mobile-menu"
+		>
+			<svg
+				id="icon-open"
+				xmlns="http://www.w3.org/2000/svg"
+				class="h-6 w-6"
+				fill="none"
+				viewBox="0 0 24 24"
+				stroke="currentColor"
+				stroke-width="2"
+			>
+				<path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+			</svg>
+			<svg
+				id="icon-close"
+				xmlns="http://www.w3.org/2000/svg"
+				class="hidden h-6 w-6"
+				fill="none"
+				viewBox="0 0 24 24"
+				stroke="currentColor"
+				stroke-width="2"
+			>
+				<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+			</svg>
+		</button>
+	</nav>
+
+	<ul id="mobile-menu" class="hidden flex-col gap-1 border-t border-marron/10 px-6 pb-4 md:hidden">
+		{links.map((link) => (
+			<li>
+				<a href={link.href} class="block rounded-lg px-2 py-3 font-medium text-marron hover:bg-oliva/10 hover:text-oliva">
+					{link.label}
+				</a>
+			</li>
+		))}
+	</ul>
+</header>
+
+<script>
+	const toggle = document.getElementById('menu-toggle');
+	const menu = document.getElementById('mobile-menu');
+	const iconOpen = document.getElementById('icon-open');
+	const iconClose = document.getElementById('icon-close');
+
+	toggle?.addEventListener('click', () => {
+		const isOpen = menu?.classList.contains('flex');
+		menu?.classList.toggle('hidden', isOpen);
+		menu?.classList.toggle('flex', !isOpen);
+		iconOpen?.classList.toggle('hidden', !isOpen);
+		iconClose?.classList.toggle('hidden', isOpen);
+		toggle?.setAttribute('aria-expanded', String(!isOpen));
+	});
+</script>

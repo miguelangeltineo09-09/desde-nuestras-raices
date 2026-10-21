@@ -1,0 +1,46 @@
+@import "tailwindcss";
+@config "../../tailwind.config.mjs";
+
+:root {
+  --crema: #F4EBDD;
+  --oliva: #71845B;
+  --terracota: #C77D59;
+  --amarillo: #E2C66D;
+  --marron: #493B2B;
+  --blanco: #FFFFFF;
+  --oliva-suave: #D7E0CA;
+  --terracota-suave: #F0D3BC;
+  --amarillo-suave: #F1E2B6;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Playfair Display', serif;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

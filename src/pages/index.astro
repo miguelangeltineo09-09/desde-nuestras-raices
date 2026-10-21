@@ -1,0 +1,94 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HelpCard from '../components/HelpCard.astro';
+import HeroCarousel from '../components/HeroCarousel.astro';
+
+const helpCards = [
+	{
+		icon: '🍲',
+		title: 'Donar alimentos',
+		description: 'Ayuda a que más familias tengan acceso a una alimentación digna.',
+		buttonText: 'Más información',
+		buttonHref: '/ayudar/alimentos',
+		accentColor: 'bg-oliva',
+		bgColor: 'bg-oliva-suave',
+	},
+	{
+		icon: '📚',
+		title: 'Donar útiles',
+		description: 'Contribuye con materiales escolares para que ningún niño se quede sin estudiar.',
+		buttonText: 'Más información',
+		buttonHref: '/ayudar/utiles',
+		accentColor: 'bg-terracota',
+		bgColor: 'bg-terracota-suave',
+	},
+	{
+		icon: '💊',
+		title: 'Donar medicamentos',
+		description: 'Apoya a quienes más lo necesitan con medicamentos esenciales.',
+		buttonText: 'Más información',
+		buttonHref: '/ayudar/medicamentos',
+		accentColor: 'bg-oliva',
+		bgColor: 'bg-amarillo-suave',
+	},
+	{
+		icon: '💚',
+		title: 'Haz una donación',
+		description: 'Tu aporte, por pequeño que sea, tiene un gran impacto.',
+		buttonText: 'Donar ahora',
+		buttonHref: '/ayudar/donacion',
+		accentColor: 'bg-terracota',
+		bgColor: 'bg-oliva-suave',
+	},
+	{
+		icon: '🤝',
+		title: 'Sé voluntario',
+		description: 'Comparte tu tiempo y talento para ayudar directamente en la comunidad.',
+		buttonText: 'Quiero ser voluntario',
+		buttonHref: '/ayudar/voluntariado',
+		accentColor: 'bg-oliva',
+		bgColor: 'bg-terracota-suave',
+	},
+];
+---
+
+<BaseLayout
+	title="Desde Nuestras Raíces"
+	description="Trabajamos por el bienestar de las comunidades vulnerables de Baní identificando sus necesidades y conectando la solidaridad con quienes más la necesitan."
+>
+	<section class="mx-auto grid max-w-6xl gap-12 px-6 py-16 md:grid-cols-2 md:items-center md:py-24">
+		<div class="reveal">
+			<p class="text-sm font-semibold tracking-widest text-oliva">DESDE NUESTRAS RAÍCES</p>
+			<h1 class="mt-4 font-heading text-4xl font-bold leading-tight text-marron md:text-5xl">
+				Donde otros no miran, nosotros llegamos.
+			</h1>
+			<p class="mt-6 text-base text-marron/80 md:text-lg">
+				Trabajamos por el bienestar de las comunidades vulnerables de Baní identificando sus necesidades y
+				conectando la solidaridad con quienes más la necesitan.
+			</p>
+			<a
+				href="/nuestra-fundacion"
+				class="mt-8 inline-flex items-center gap-2 rounded-full bg-oliva px-6 py-3 text-sm font-semibold text-crema transition-opacity hover:opacity-90"
+			>
+				Conoce más →
+			</a>
+		</div>
+
+		<HeroCarousel />
+	</section>
+
+	<section class="bg-blanco px-6 py-16 md:py-24">
+		<div class="mx-auto max-w-6xl text-center">
+			<h2 class="font-heading text-3xl font-bold text-marron md:text-4xl">¿Cómo puedes ayudar?</h2>
+			<p class="mt-4 text-base text-marron/70 md:text-lg">
+				Tu apoyo hace la diferencia. Hay muchas formas de ser parte del cambio.
+			</p>
+
+			<div class="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+				{helpCards.map((card, i) => (
+					<HelpCard {...card} revealDelay={i * 80} />
+				))}
+			</div>
+		</div>
+	</section>
+</BaseLayout>

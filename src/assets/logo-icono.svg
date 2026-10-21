@@ -1,0 +1,13 @@
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+<title>Ícono Desde Nuestras Raíces</title>
+<desc>Hoja que nace de un sol y se conecta con raíces, sin texto.</desc>
+<circle cx="50" cy="22" r="11" fill="#E2C66D"/>
+<path d="M 50 32 C 50 48 46 58 49 70" fill="none" stroke="#493B2B" stroke-width="4" stroke-linecap="round"/>
+<path d="M 49 46 C 32 42 24 28 26 15 C 40 15 51 26 50 42 Z" fill="#71845B"/>
+<path d="M 49 56 C 62 53 72 42 71 29 C 58 30 48 42 49 56 Z" fill="#71845B"/>
+<g stroke="#C77D59" stroke-width="3" stroke-linecap="round" fill="none">
+<path d="M 49 70 C 42 74 36 82 33 91"/>
+<path d="M 49 70 C 50 77 48 85 45 92"/>
+<path d="M 49 70 C 57 75 63 83 65 91"/>
+</g>
+</svg>

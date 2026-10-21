@@ -1,0 +1,140 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const valores = [
+	{
+		nombre: 'Solidaridad',
+		descripcion: 'unir esfuerzos para apoyar a quienes lo necesitan.',
+		bgColor: 'bg-oliva-suave',
+	},
+	{
+		nombre: 'Dignidad',
+		descripcion: 'tratar a cada persona con respeto, sin prejuicios ni discriminación.',
+		bgColor: 'bg-terracota-suave',
+	},
+	{
+		nombre: 'Transparencia',
+		descripcion: 'informar cómo se organizan y distribuyen las donaciones.',
+		bgColor: 'bg-amarillo-suave',
+	},
+	{
+		nombre: 'Responsabilidad',
+		descripcion: 'priorizar las necesidades reales y utilizar adecuadamente los recursos.',
+		bgColor: 'bg-oliva-suave',
+	},
+	{
+		nombre: 'Compromiso',
+		descripcion: 'mantener un trabajo continuo y no solamente en fechas especiales.',
+		bgColor: 'bg-terracota-suave',
+	},
+	{
+		nombre: 'Participación',
+		descripcion: 'escuchar a los residentes e involucrarlos en las decisiones.',
+		bgColor: 'bg-amarillo-suave',
+	},
+	{
+		nombre: 'Equidad',
+		descripcion: 'procurar que la ayuda llegue a quienes presentan mayores necesidades.',
+		bgColor: 'bg-oliva-suave',
+	},
+];
+---
+
+<BaseLayout
+	title="Nuestra Fundación | Desde Nuestras Raíces"
+	description="Conoce la misión, visión y los valores institucionales de Desde Nuestras Raíces, una iniciativa comunitaria en Baní."
+>
+	<section class="px-6 pt-16 text-center md:pt-20">
+		<p class="text-sm font-semibold tracking-widest text-oliva">NUESTRA FUNDACIÓN</p>
+	</section>
+
+	<section class="px-6 py-12 md:py-20">
+		<div class="mx-auto max-w-6xl">
+			<h2 class="text-center font-heading text-3xl font-bold text-marron md:text-4xl">Misión y Visión</h2>
+
+			<div class="mt-10 grid gap-8 md:grid-cols-2">
+				<div class="reveal flex flex-col rounded-2xl bg-oliva-suave p-8">
+					<div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-oliva text-2xl">
+						<span aria-hidden="true">🎯</span>
+					</div>
+					<h3 class="font-heading text-xl font-semibold text-marron">Misión</h3>
+					<p class="mt-3 text-sm text-marron/80 md:text-base">
+						Trabajar por el bienestar de las comunidades vulnerables de Baní mediante la identificación de sus
+						necesidades, la recolección y distribución responsable de alimentos y útiles escolares, y la
+						coordinación de iniciativas de apoyo sanitario y social. Promovemos la solidaridad, la participación
+						comunitaria y el uso transparente de los recursos para contribuir a una mejor calidad de vida.
+					</p>
+				</div>
+
+				<div class="reveal flex flex-col rounded-2xl bg-terracota-suave p-8" style="transition-delay: 80ms">
+					<div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-terracota text-2xl">
+						<span aria-hidden="true">🌱</span>
+					</div>
+					<h3 class="font-heading text-xl font-semibold text-marron">Visión</h3>
+					<p class="mt-3 text-sm text-marron/80 md:text-base">
+						Ser una iniciativa comunitaria reconocida por contribuir a que ninguna familia de Baní quede
+						invisibilizada, impulsando un modelo de ayuda organizado, humano y sostenible en el que las
+						necesidades de la población sean escuchadas y atendidas con dignidad.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="px-6 py-12 md:py-20">
+		<div class="mx-auto max-w-6xl">
+			<h2 class="text-center font-heading text-3xl font-bold text-marron md:text-4xl">Valores institucionales</h2>
+
+			<div class="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+				{valores.map((valor, i) => (
+					<div class={`reveal rounded-xl p-6 ${valor.bgColor}`} style={`transition-delay: ${i * 80}ms`}>
+						<h4 class="font-bold text-marron">{valor.nombre}</h4>
+						<p class="mt-2 text-sm text-marron/70">{valor.descripcion}</p>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<section class="bg-[#EADFCD] px-6 py-16 md:py-20">
+		<div class="mx-auto max-w-3xl">
+			<h2 class="font-heading text-2xl font-bold text-marron md:text-3xl">¿Cómo surgió Desde Nuestras Raíces?</h2>
+			<p class="mt-4 text-sm text-marron/80 md:text-base">
+				Desde Nuestras Raíces nace como una iniciativa sociocultural inspirada en la necesidad de visibilizar las
+				dificultades que enfrentan algunas comunidades vulnerables de nuestro municipio.
+			</p>
+			<p class="mt-4 text-sm text-marron/80 md:text-base">
+				En ocasiones, existen sectores cuyas necesidades reciben poca atención, especialmente cuando se encuentran
+				alejados de las zonas más conocidas o concurridas. Detrás de cada comunidad hay familias con historias,
+				sueños y necesidades que merecen ser escuchadas.
+			</p>
+			<p class="mt-4 text-sm text-marron/80 md:text-base">
+				Por eso, decidimos crear una propuesta que no se limite a entregar donaciones, sino que busque comprender
+				la realidad de cada comunidad y encontrar formas organizadas de contribuir a su bienestar.
+			</p>
+			<p class="mt-4 text-sm text-marron/80 md:text-base">
+				Creemos que para ayudar de manera efectiva, primero debemos conocer a las personas, escuchar sus
+				necesidades y comprender qué recursos pueden marcar una diferencia en sus vidas.
+			</p>
+
+			<h2 class="mt-12 font-heading text-2xl font-bold text-marron md:text-3xl">¿Por qué nace esta iniciativa?</h2>
+			<p class="mt-4 text-sm text-marron/80 md:text-base">
+				Nuestra fundación parte de una realidad: no todas las familias tienen las mismas oportunidades ni pueden
+				acceder con facilidad a los recursos básicos.
+			</p>
+			<p class="mt-4 text-sm text-marron/80 md:text-base">
+				Algunas necesitan apoyo alimentario; otras, materiales escolares para sus hijos o ayuda para acceder a
+				servicios de salud.
+			</p>
+			<p class="mt-4 text-sm text-marron/80 md:text-base">
+				Sin embargo, no podemos responder adecuadamente a estas necesidades si desconocemos cuántas personas
+				requieren apoyo y qué tipo de ayuda necesitan.
+			</p>
+			<p class="mt-4 text-sm text-marron/80 md:text-base">
+				Por esta razón, proponemos un modelo de trabajo basado en la investigación comunitaria, la solidaridad y
+				el compromiso social, con el objetivo de que los recursos disponibles lleguen a quienes más los
+				necesitan.
+			</p>
+		</div>
+	</section>
+</BaseLayout>

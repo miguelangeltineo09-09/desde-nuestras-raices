@@ -1,0 +1,33 @@
+---
+interface Props {
+	icon: string;
+	title: string;
+	description: string;
+	buttonText: string;
+	buttonHref: string;
+	accentColor: string;
+	bgColor: string;
+	revealDelay?: number;
+}
+
+const { icon, title, description, buttonText, buttonHref, accentColor, bgColor, revealDelay = 0 } = Astro.props;
+---
+
+<div
+	class={`reveal flex h-full flex-col rounded-2xl p-6 shadow-sm ${bgColor}`}
+	style={`transition-delay: ${revealDelay}ms`}
+>
+	<div class={`mb-4 flex h-12 w-12 items-center justify-center rounded-xl text-2xl ${accentColor}`}>
+		<span aria-hidden="true">{icon}</span>
+	</div>
+
+	<h3 class="font-heading text-lg font-semibold text-marron">{title}</h3>
+	<p class="mt-2 flex-1 text-sm text-marron/70">{description}</p>
+
+	<a
+		href={buttonHref}
+		class={`mt-6 inline-flex w-fit items-center justify-center rounded-full px-5 py-2 text-sm font-semibold text-crema transition-opacity hover:opacity-90 ${accentColor}`}
+	>
+		{buttonText}
+	</a>
+</div>

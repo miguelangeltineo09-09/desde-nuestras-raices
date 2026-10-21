@@ -1,0 +1,18 @@
+<svg width="380" height="460" viewBox="0 0 380 460" xmlns="http://www.w3.org/2000/svg">
+<title>Logo Desde Nuestras Raíces</title>
+<desc>Icono de una hoja que nace de un sol y se conecta con raíces, sobre el nombre de la fundación y su eslogan.</desc>
+<g transform="translate(190,150)">
+<circle cx="0" cy="-40" r="22" fill="#E2C66D"/>
+<path d="M 0 -18 C 0 10 -8 30 -2 55" fill="none" stroke="#493B2B" stroke-width="5" stroke-linecap="round"/>
+<path d="M -2 10 C -34 2 -48 -22 -44 -46 C -18 -46 2 -28 0 2 Z" fill="#71845B"/>
+<path d="M -2 28 C 22 22 40 2 38 -20 C 14 -18 -4 2 -2 28 Z" fill="#71845B"/>
+<g stroke="#C77D59" stroke-width="4" stroke-linecap="round" fill="none">
+<path d="M -2 55 C -22 62 -34 78 -40 96"/>
+<path d="M -2 55 C 2 68 -2 84 -8 100"/>
+<path d="M -2 55 C 16 64 26 80 30 98"/>
+</g>
+</g>
+<text x="190" y="300" text-anchor="middle" font-family="Georgia, serif" font-size="34" fill="#493B2B">Desde</text>
+<text x="190" y="342" text-anchor="middle" font-family="Georgia, serif" font-size="34" fill="#493B2B">Nuestras Raíces</text>
+<text x="190" y="378" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="#71845B">Donde otros no miran, nosotros llegamos</text>
+</svg>

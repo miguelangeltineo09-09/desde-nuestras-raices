@@ -1,0 +1,153 @@
+---
+import hero1 from '../assets/hero/hero-1.jpg';
+import hero2 from '../assets/hero/hero-2.jpg';
+import hero3 from '../assets/hero/hero-3.jpg';
+import hero4 from '../assets/hero/hero-4.jpg';
+import hero5 from '../assets/hero/hero-5.jpg';
+import hero6 from '../assets/hero/hero-6.jpg';
+
+const slides = [
+	{ src: hero1.src, alt: 'Voluntarios empacando alimentos para su distribución.' },
+	{ src: hero2.src, alt: 'Voluntarias organizando bolsas con alimentos donados.' },
+	{ src: hero3.src, alt: 'Voluntario conversando con un grupo de niños en una jornada comunitaria.' },
+	{ src: hero4.src, alt: 'Grupo de voluntarios en una jornada de apoyo comunitario.' },
+	{ src: hero5.src, alt: 'Voluntarios de salud organizando medicamentos durante una jornada comunitaria.' },
+	{ src: hero6.src, alt: 'Una voluntaria da de comer a un niño en una actividad comunitaria.' },
+];
+---
+
+<div
+	id="hero-carousel"
+	class="reveal relative h-64 overflow-hidden rounded-2xl md:h-96"
+	style="transition-delay: 150ms"
+	role="region"
+	aria-label="Fotos de la comunidad"
+>
+	<ul class="relative h-full w-full list-none">
+		{slides.map((slide, i) => (
+			<li
+				data-slide
+				class:list={[
+					'absolute inset-0 transition-opacity duration-1000 ease-in-out',
+					i === 0 ? 'opacity-100' : 'opacity-0',
+				]}
+			>
+				<img src={slide.src} alt={slide.alt} class="h-full w-full object-cover" loading={i === 0 ? 'eager' : 'lazy'} />
+			</li>
+		))}
+	</ul>
+
+	<button
+		type="button"
+		data-prev
+		class="absolute left-3 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-marron/40 text-crema transition-colors hover:bg-marron/60"
+		aria-label="Imagen anterior"
+	>
+		<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+			<path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+		</svg>
+	</button>
+
+	<button
+		type="button"
+		data-next
+		class="absolute right-3 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-marron/40 text-crema transition-colors hover:bg-marron/60"
+		aria-label="Imagen siguiente"
+	>
+		<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+			<path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+		</svg>
+	</button>
+
+	<div class="absolute bottom-3 left-1/2 flex -translate-x-1/2 gap-2">
+		{slides.map((_, i) => (
+			<button
+				type="button"
+				data-dot
+				class:list={['h-2.5 w-2.5 rounded-full transition-colors', i === 0 ? 'bg-oliva' : 'bg-crema/60']}
+				aria-label={`Ir a la imagen ${i + 1}`}
+				aria-current={i === 0 ? 'true' : undefined}
+			/>
+		))}
+	</div>
+</div>
+
+<script>
+	const AUTOPLAY_MS = 6000;
+
+	document.querySelectorAll<HTMLElement>('#hero-carousel').forEach((root) => {
+		const slides = Array.from(root.querySelectorAll<HTMLElement>('[data-slide]'));
+		const dots = Array.from(root.querySelectorAll<HTMLElement>('[data-dot]'));
+		const prevBtn = root.querySelector<HTMLButtonElement>('[data-prev]');
+		const nextBtn = root.querySelector<HTMLButtonElement>('[data-next]');
+		const total = slides.length;
+		const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+		let current = 0;
+		let timer: number | undefined;
+
+		function show(index: number) {
+			current = (index + total) % total;
+			slides.forEach((slide, i) => {
+				slide.classList.toggle('opacity-100', i === current);
+				slide.classList.toggle('opacity-0', i !== current);
+			});
+			dots.forEach((dot, i) => {
+				const isActive = i === current;
+				dot.classList.toggle('bg-oliva', isActive);
+				dot.classList.toggle('bg-crema/60', !isActive);
+				if (isActive) {
+					dot.setAttribute('aria-current', 'true');
+				} else {
+					dot.removeAttribute('aria-current');
+				}
+			});
+		}
+
+		function next() {
+			show(current + 1);
+		}
+
+		function prev() {
+			show(current - 1);
+		}
+
+		function stopAutoplay() {
+			if (timer !== undefined) {
+				window.clearInterval(timer);
+				timer = undefined;
+			}
+		}
+
+		function startAutoplay() {
+			if (prefersReducedMotion) return;
+			stopAutoplay();
+			timer = window.setInterval(next, AUTOPLAY_MS);
+		}
+
+		function restartAutoplay() {
+			stopAutoplay();
+			startAutoplay();
+		}
+
+		prevBtn?.addEventListener('click', () => {
+			prev();
+			restartAutoplay();
+		});
+
+		nextBtn?.addEventListener('click', () => {
+			next();
+			restartAutoplay();
+		});
+
+		dots.forEach((dot, i) => {
+			dot.addEventListener('click', () => {
+				show(i);
+				restartAutoplay();
+			});
+		});
+
+		show(0);
+		startAutoplay();
+	});
+</script>
